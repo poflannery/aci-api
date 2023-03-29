@@ -1,7 +1,8 @@
 const dbFetch = require('../../_config/index')
 const jwt = require('jsonwebtoken')
 const validation = require('../../_validation/index')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+const graph = require('../../_config/microsoftGraph');
 //
 //
 //
@@ -157,5 +158,12 @@ module.exports = {
     GetUser,
     UpdateUser,
     updateCredentials
-}
+};
+
+
+
+
+
+
+
 

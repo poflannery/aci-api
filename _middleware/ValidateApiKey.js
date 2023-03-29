@@ -12,11 +12,6 @@ module.exports = async function (req,res,next) {
     if (record.error || record.data.message) {
         return res.http(500).log(record)
     };
-    // validation of the host key is coming from.
-    if (!record.data.records[0].whitelist.includes(req.hostname)){
-        return res.http(401).log('Invalid request host.')
-    }
-    // save tenants for tenant check
     req.tenants = record.data.records[0].tenants;
     if (req.tenants === undefined) {
         return res.http(500).log('Error establishing tenants.')
