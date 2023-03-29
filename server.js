@@ -20,16 +20,21 @@ const corsOptions = require('./_config/cors');
 server = new express();
 //
 //
-
+//
+//
+//
+//
 server.use(express.json());
 server.use(cookieParser());
 server.use((req,res,next) => httpResponse(req,res,next))
+server.use(cors(corsOptions))
 //
 //
 //
-server.use('*', cors(corsOptions))
+//
+//
 server.use('/api/v1/tenant/:tenant',[limiter,ValidateApiKey, ValidateTenant], v1Router) // Version 1
-
+//
 //
 //
 //
